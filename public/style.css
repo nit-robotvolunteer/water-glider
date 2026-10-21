@@ -211,15 +211,15 @@ h2 .num .ic{margin:0;width:.85em;height:.85em}
 .best .ic{color:var(--orange)}
 
 /* furigana */
-/* ふりがなは漢字の上に浮かせる（文字の間隔・行の高さを崩さない） */
-ruby{display:inline-block;position:relative;line-height:1.15;text-indent:0;white-space:nowrap}
-rt{display:block;position:absolute;left:50%;bottom:100%;transform:translateX(-50%);
+/* ふりがな（自前ルビ：Safari/Chrome とも同じ表示） */
+.rb{display:inline-block;position:relative;line-height:1.15;text-indent:0;white-space:nowrap}
+.rb .rt{position:absolute;left:50%;bottom:100%;transform:translateX(-50%);
   font-size:.5em;line-height:1;font-weight:500;letter-spacing:0;white-space:nowrap;color:inherit;opacity:.8;
-  padding-bottom:.05em;pointer-events:none}
-h1 rt,h2 rt,h3 rt,h4 rt,.kicker rt{font-size:.42em}
+  padding-bottom:.08em;pointer-events:none;user-select:none;-webkit-user-select:none}
+h1 .rt,h2 .rt,h3 .rt,h4 .rt,.kicker .rt{font-size:.42em}
 h1{line-height:1.7}
 h2,h3,h4{line-height:1.6}
-.no-ruby rt{display:none}
+.no-ruby .rt{display:none}
 .rubytoggle{flex:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1}
 .rubytoggle .rt-demo{display:inline-grid;justify-items:center;line-height:1;font-size:1rem}
 .rubytoggle .rt-demo small{font-size:.5rem;order:-1;margin-bottom:1px}
