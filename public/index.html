@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>水中グライダー工作教室｜ロボットボランティア 工作班</title>
+<meta name="description" content="水中グライダー工作教室の手元資料。組み立て手順、水中グライダーのしくみ、アンケート。">
+<meta name="theme-color" content="#12355b">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="水中グライダー工作教室">
+<meta property="og:description" content="ロボットボランティア 工作班の手元資料">
+<meta property="og:image" content="/img/glider.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="top">
+  <a href="#home" class="brand" aria-label="ページの先頭へ"><img src="/img/logo.svg" alt="ロボットボランティア 工作班" width="884" height="100"></a>
+</header>
+
+<nav class="tabs" aria-label="もくじ">
+  <a href="#about"><span class="ti">🌊</span>しくみ</a>
+  <a href="#parts"><span class="ti">🧩</span>部品</a>
+  <a href="#build"><span class="ti">🔧</span>組み立て</a>
+  <a href="#swim"><span class="ti">🏁</span>泳がせる</a>
+  <a href="#survey"><span class="ti">✏️</span>アンケート</a>
+</nav>
+
+<main>
+
+<!-- ===== HOME ===== -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <p class="kicker">水中ロボット教室</p>
+    <h1>水中グライダーを<br>つくって泳がせよう！</h1>
+    <p class="lead">プロペラもモーターもないのに、水の中をすーっと進むロボット。<br>しくみを知って、自分の手で組み立てて、どこまで進むかためしてみよう。</p>
+  </div>
+  <figure class="hero-img">
+    <img src="/img/glider.webp" alt="完成した水中グライダー。黒いどうたいに青いつばさとびよくがついている" width="1000" height="691">
+    <figcaption>できあがりはこんな形！</figcaption>
+  </figure>
+
+  <ol class="flow" aria-label="きょうの流れ">
+    <li><b>1</b>部品と工具をそろえる</li>
+    <li><b>2</b>組み立ての手順をみる</li>
+    <li><b>3</b>手順どおりに組み立てる</li>
+    <li><b>4</b>できた人から泳がせる</li>
+    <li><b>5</b>進んだきょりで競争！</li>
+  </ol>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2><span class="num">🌊</span>水中グライダーってなに？</h2>
+
+  <div class="card speech">
+    <p class="q">プロペラがないのに、どうやって進むの？</p>
+    <p class="a">水の中を<strong>しずんだり、うかんだり</strong>するときの力を、<strong>つばさ</strong>で「前へ進む力」にかえて進むんだ！</p>
+  </div>
+
+  <h3>どうやって動くの？</h3>
+  <figure class="figure">
+    <img src="/img/howitworks.jpg" alt="おもりをつけてしずみながら進み、底でおもりが外れて、うきながら進むようす" loading="lazy" width="1100" height="637">
+  </figure>
+  <ol class="steps-mini">
+    <li><b>①</b><span><strong>前におもりをつける</strong> → 重心（じゅうしん）が前にうつり、頭が少し下を向く</span></li>
+    <li><b>②</b><span>そのまま<strong>しずむ</strong> → つばさが水をうけて、<strong>ななめ前</strong>に進む</span></li>
+    <li><b>③</b><span>底につくと<strong>おもりが外れる</strong> → 体が軽くなる</span></li>
+    <li><b>④</b><span>こんどは<strong>うきながら</strong>、ななめ前に進む！</span></li>
+  </ol>
+  <p class="note">紙ひこうきが、おちながら前に進むのと同じなかま。水中グライダーは「おちる（しずむ）」と「うく」の両方で進めるのがポイント！</p>
+
+  <h3>本物の水中グライダー</h3>
+  <div class="grid3">
+    <div class="fact"><span class="big">2〜2.5<small>m</small></span>全長。おうちのドアと同じくらいの長さ</div>
+    <div class="fact"><span class="big">0<small>こ</small></span>スクリューの数。とても静か</div>
+    <div class="fact"><span class="big">数か月</span>1回で数週間〜数か月はたらき、数千kmも進む</div>
+  </div>
+  <p>本物は「おもり」を外すかわりに、体の中で<strong>油（あぶら）を出し入れしてふくろの大きさを変え</strong>、うく力を変えています。だから何回でも、しずんだり、うかんだりをくりかえせます。</p>
+
+  <h3>海のなにを調べるの？ 3つのセンサ</h3>
+  <div class="grid3">
+    <div class="sensor"><b>🌡️ 温度センサ</b>海の水の温度をはかる。海流の動きや、季節の変化がわかる</div>
+    <div class="sensor"><b>⚡ 電気伝どう度センサ</b>海水の電気の通しやすさをはかり、そこから<strong>塩分</strong>を計算する</div>
+    <div class="sensor"><b>📏 水深センサ</b>水の重さ（水圧）をはかって、<strong>今どのくらい深いところにいるか</strong>を知る</div>
+  </div>
+
+  <h3>すごいミッション</h3>
+  <div class="grid2">
+    <div class="card mission">
+      <p class="tag">2009年</p>
+      <h4>大西洋を1台で横断！</h4>
+      <p>アメリカの水中グライダー「スカーレット・ナイト（RU-27）」は、221日かけて大西洋をわたりきりました。水中を進むロボットではじめての大西洋横断です。</p>
+    </div>
+    <div class="card mission">
+      <p class="tag">2020年</p>
+      <h4>台風（ハリケーン）のナゾを調べる</h4>
+      <p>アメリカ海洋大気庁（NOAA）は、ハリケーンが通る海に水中グライダーを送り、水温をはかりました。あたたかい海が嵐を強くするしくみを調べるためです。</p>
+    </div>
+  </div>
+
+  <h3>どこまで深くもぐれる？</h3>
+  <div class="depth" role="img" aria-label="深さくらべ。富士山3776メートルより、海翼の6329メートルの方が深い">
+    <div class="row"><span class="nm">スローカム（浅い海）</span><span class="bar" style="--d:200"></span><span class="m">200m</span></div>
+    <div class="row"><span class="nm">シーグライダー</span><span class="bar" style="--d:1000"></span><span class="m">1,000m</span></div>
+    <div class="row"><span class="nm">スプレー</span><span class="bar" style="--d:1500"></span><span class="m">1,500m</span></div>
+    <div class="row fuji"><span class="nm">🗻 富士山の高さ</span><span class="bar" style="--d:3776"></span><span class="m">3,776m</span></div>
+    <div class="row deep"><span class="nm">海翼（ハイイー）</span><span class="bar" style="--d:6329"></span><span class="m">6,329m</span></div>
+  </div>
+  <p class="note">2017年、中国の「海翼」はマリアナ海溝で6,329mまでもぐり、水中グライダーの深さの記録をつくりました。富士山をまるごとしずめても、まだとどかない深さです。</p>
+
+  <h3>アイデアから世界記録まで</h3>
+  <ol class="timeline">
+    <li><b>1960年ごろ</b>「しずんだり、うかんだりして進む」アイデアが生まれる</li>
+    <li><b>1989年</b>アメリカの海洋学者ストンメルが、水中グライダーで海を調べる未来をえがいた論文を発表</li>
+    <li><b>1992年</b>日本でも水中グライダー「ALBAC（アルバック）」がつくられる</li>
+    <li><b>2000年代</b>本物の海の調査で使われはじめる</li>
+    <li><b>2009年</b>大西洋横断に成功</li>
+    <li><b>2017年</b>6,329mの深さの記録</li>
+    <li class="now"><b>いま</b>世界中の海で、たくさんの水中グライダーが調査中！</li>
+  </ol>
+</section>
+
+<!-- ===== PARTS ===== -->
+<section id="parts">
+  <h2><span class="num">🧩</span>部品のかくにん</h2>
+  <p>箱から部品を出して、そろっていたらチェック ✅ しよう。たりないときは、近くのスタッフに声をかけてね。</p>
+  <div class="progress" aria-live="polite"><span class="bar"><i id="partsBar"></i></span><span id="partsTxt">0 / 9</span></div>
+  <ul class="parts" id="partsList">
+    <li><label><input type="checkbox" data-k="p-body"><img src="/img/part-body.jpg" alt="" loading="lazy"><span><b>どうたい</b>×1<small>グライダーの体</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-main"><img src="/img/part-mainwing.jpg" alt="" loading="lazy"><span><b>しゅよく（主翼）</b>×2<small>大きいつばさ・左右</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-mount"><img src="/img/part-wingmount.jpg" alt="" loading="lazy"><span><b>よくうけ（つばさうけ）</b>×2<small>つばさを取り付ける台</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-tail"><img src="/img/part-tail.jpg" alt="" loading="lazy"><span><b>びよく（尾翼）</b>×1<small>うしろに立てるつばさ</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-rivet"><img src="/img/part-rivet.jpg" alt="" loading="lazy"><span><b>プッシュリベット</b>×各4<small>つばさをとめるピン</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-ring"><img src="/img/part-ring.jpg" alt="" loading="lazy"><span><b>丸</b>×4<small>どうたいの上の穴にはまる黒いパーツ</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-hook"><img src="/img/part-hook.jpg" alt="" loading="lazy"><span><b>金具</b>×1<small>おもりをかけるフック</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-weight"><img src="/img/part-weight.jpg" alt="" loading="lazy"><span><b>おもり</b>×てきりょう<small>輪がついたおもり</small></span></label></li>
+    <li><label><input type="checkbox" data-k="p-float"><img src="/img/part-float.jpg" alt="" loading="lazy"><span><b>浮力材</b>×てきりょう<small>うく力をたすスポンジ</small></span></label></li>
+  </ul>
+</section>
+
+<!-- ===== BUILD ===== -->
+<section id="build">
+  <h2><span class="num">🔧</span>組み立て手順</h2>
+  <p>1つできたら「できた！」をおそう。つぎの手順にすすむよ。</p>
+  <div class="progress" aria-live="polite"><span class="bar"><i id="buildBar"></i></span><span id="buildTxt">0 / 6</span></div>
+
+  <ol class="build" id="buildList">
+    <li class="step" data-k="s1">
+      <div class="sh"><span class="sn">1</span><h3>よくうけを取り付ける</h3></div>
+      <img src="/img/step1.jpg" alt="どうたいの横に黒いよくうけを取り付けたところ" loading="lazy">
+      <p>どうたいの<strong>左右の穴</strong>に、よくうけを取り付けます。</p>
+      <p class="point">👀 しゅよくを付ける面と、穴の位置をそろえよう。</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+    <li class="step" data-k="s2">
+      <div class="sh"><span class="sn">2</span><h3>しゅよくを取り付ける（1）</h3></div>
+      <img src="/img/step2.jpg" alt="しゅよくの穴をよくうけの穴に合わせ、黄色いピンでとめたところ" loading="lazy">
+      <p>左右のしゅよくの穴を、よくうけの穴に合わせて、<strong>プッシュリベット</strong>でとめます。</p>
+      <p class="warn">⚠️ 左と右で、<strong>高さと角度がそろっているか</strong>たしかめながら付けよう。ずれていると、まっすぐ進まないよ。</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+    <li class="step" data-k="s3">
+      <div class="sh"><span class="sn">3</span><h3>しゅよくを取り付ける（2）<br><small>プッシュリベットのさしかた</small></h3></div>
+      <img src="/img/step3.jpg" alt="プッシュリベットを指でおしこんでいるところ" loading="lazy">
+      <p>よくうけの穴としゅよくの穴をそろえたら、<strong>穴があいている方のピン</strong>を先にさし、そのあと<strong>もう片方のピン</strong>をおしこみます。</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+    <li class="step" data-k="s4">
+      <div class="sh"><span class="sn">4</span><h3>びよくを取り付ける</h3></div>
+      <img src="/img/step4.jpg" alt="どうたいのうしろのみぞに、びよくを立ててさしこんだところ" loading="lazy">
+      <p>どうたいの<strong>うしろ側のみぞ</strong>に、びよくを<strong>まっすぐ</strong>さしこんで立てます。</p>
+      <p class="warn">⚠️ つばさやびよくに<strong>ねじれ</strong>や、大きな<strong>がたつき</strong>がないかチェック！</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+    <li class="step" data-k="s5">
+      <div class="sh"><span class="sn">5</span><h3>金具と浮力材を取り付ける</h3></div>
+      <img src="/img/step5.jpg" alt="どうたいの下に金具をねじこんだところ" loading="lazy">
+      <p>金具を、どうたいの<strong>下の面の取付穴</strong>にねじこみます。金具の<strong>先たんは、びよく（うしろ）側</strong>に向けてね。</p>
+      <p>浮力材は、穴にねじこみます。</p>
+      <p class="point">💡 先たんがうしろ向きだと、頭から底についたとき、おもりがするっと外れるよ。</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+    <li class="step" data-k="s6">
+      <div class="sh"><span class="sn">6</span><h3>おもりをかける</h3></div>
+      <img src="/img/step6.jpg" alt="金具の先からおもりの輪をかけたところ" loading="lazy">
+      <p>おもりの<strong>輪</strong>を、金具の<strong>開いている先たん</strong>からかけます。</p>
+      <p class="warn">⚠️ 輪が根もとに引っかからず、<strong>先たんへすべって外れるか</strong>、手でかたむけてたしかめよう。</p>
+      <button class="done" type="button">できた！</button>
+    </li>
+  </ol>
+  <div class="complete" id="buildDone" hidden>
+    <img src="/img/glider.webp" alt="" width="1000" height="691">
+    <p><strong>完成おめでとう！🎉</strong><br>水そうで泳がせてみよう。</p>
+    <a class="btn" href="#swim">泳がせかたを見る</a>
+  </div>
+  <p class="reset"><button type="button" id="resetBtn" class="link">チェックをぜんぶ消す</button></p>
+</section>
+
+<!-- ===== SWIM ===== -->
+<section id="swim">
+  <h2><span class="num">🏁</span>泳がせてみよう</h2>
+  <ol class="steps-mini">
+    <li><b>1</b><span>水そうの水面で、頭を少し下に向けて、そっと手をはなす（投げない！）</span></li>
+    <li><b>2</b><span>しずみながら前へ → 底でおもりが外れて → うきながら前へ</span></li>
+    <li><b>3</b><span>水面にうかんだところまでのきょりをはかろう</span></li>
+  </ol>
+
+  <h3>うまく進まないときは？</h3>
+  <div class="trouble">
+    <details><summary>まっすぐ下にしずんでしまう</summary><p>頭が下を向きすぎています。おもりを1つへらしてみよう。つばさが左右で同じ角度か、もう一度チェック。</p></details>
+    <details><summary>しずまない・ゆっくりすぎる</summary><p>うく力が強すぎます。おもりを1つふやしてみよう。</p></details>
+    <details><summary>底についてもおもりが外れない</summary><p>金具の先たんが、びよく（うしろ）側を向いているか見てみよう。輪が根もとに引っかかっていないかもチェック。</p></details>
+    <details><summary>左や右にまがってしまう</summary><p>びよくがまっすぐ立っているか、しゅよくが左右で同じ高さ・角度か見てみよう。つばさのねじれも原因になるよ。</p></details>
+    <details><summary>うかんでこない</summary><p>浮力材がしっかりついているか、外れていないかたしかめよう。</p></details>
+  </div>
+
+  <h3>きろくメモ</h3>
+  <p class="note">この画面だけに保存されるメモです。</p>
+  <form id="recForm" class="rec">
+    <label>きょり <input type="number" id="recDist" inputmode="decimal" min="0" step="1" placeholder="例 120" required> cm</label>
+    <label>おもり <input type="number" id="recW" inputmode="numeric" min="0" max="20" placeholder="こ"> こ</label>
+    <button type="submit" class="btn small">記録する</button>
+  </form>
+  <ul id="recList" class="reclist"></ul>
+  <p id="recBest" class="best" hidden></p>
+</section>
+
+<!-- ===== SURVEY ===== -->
+<section id="survey">
+  <h2><span class="num">✏️</span>アンケート</h2>
+  <p>さいごに教えてね。名前は書かなくて大丈夫です。</p>
+
+  <form id="surveyForm" class="survey" novalidate>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <fieldset>
+      <legend>あなたは？ <em>ひっす</em></legend>
+      <div class="chips">
+        <label><input type="radio" name="grade" value="小1-2" required><span>小1・2</span></label>
+        <label><input type="radio" name="grade" value="小3-4"><span>小3・4</span></label>
+        <label><input type="radio" name="grade" value="小5-6"><span>小5・6</span></label>
+        <label><input type="radio" name="grade" value="中学生"><span>中学生</span></label>
+        <label><input type="radio" name="grade" value="保護者"><span>おうちの人</span></label>
+        <label><input type="radio" name="grade" value="その他"><span>その他</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>工作教室はたのしかった？ <em>ひっす</em></legend>
+      <div class="faces">
+        <label><input type="radio" name="fun" value="5" required><span>😆<small>すごく</small></span></label>
+        <label><input type="radio" name="fun" value="4"><span>😊<small>たのしい</small></span></label>
+        <label><input type="radio" name="fun" value="3"><span>🙂<small>ふつう</small></span></label>
+        <label><input type="radio" name="fun" value="2"><span>😐<small>あまり</small></span></label>
+        <label><input type="radio" name="fun" value="1"><span>😞<small>ぜんぜん</small></span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>組み立てはどうだった？</legend>
+      <div class="chips">
+        <label><input type="radio" name="difficulty" value="easy"><span>かんたん</span></label>
+        <label><input type="radio" name="difficulty" value="just"><span>ちょうどいい</span></label>
+        <label><input type="radio" name="difficulty" value="hard"><span>むずかしい</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>水中グライダーが進むしくみ、わかった？</legend>
+      <div class="chips">
+        <label><input type="radio" name="understand" value="3"><span>よくわかった</span></label>
+        <label><input type="radio" name="understand" value="2"><span>すこしわかった</span></label>
+        <label><input type="radio" name="understand" value="1"><span>よくわからなかった</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>いちばんおもしろかったのは？（いくつでも）</legend>
+      <div class="chips">
+        <label><input type="checkbox" name="liked" value="story"><span>グライダーのお話</span></label>
+        <label><input type="checkbox" name="liked" value="build"><span>組み立て</span></label>
+        <label><input type="checkbox" name="liked" value="swim"><span>泳がせる</span></label>
+        <label><input type="checkbox" name="liked" value="race"><span>きょりの競争</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>いちばん進んだきょり（わかれば）</legend>
+      <label class="inline"><input type="number" name="distance" min="0" max="10000" inputmode="decimal" id="svDist"> cm</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>また工作教室に来たい？</legend>
+      <div class="chips">
+        <label><input type="radio" name="again" value="yes"><span>来たい！</span></label>
+        <label><input type="radio" name="again" value="maybe"><span>たぶん</span></label>
+        <label><input type="radio" name="again" value="no"><span>いいえ</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>つぎに作ってみたいものは？</legend>
+      <input type="text" name="next" maxlength="100" placeholder="例：空をとぶロボット">
+    </fieldset>
+
+    <fieldset>
+      <legend>かんそう・気づいたこと</legend>
+      <textarea name="comment" rows="4" maxlength="500" placeholder="自由に書いてね"></textarea>
+    </fieldset>
+
+    <button type="submit" class="btn wide" id="svBtn">送信する</button>
+    <p id="svMsg" class="svmsg" role="status" aria-live="polite"></p>
+  </form>
+  <div id="svThanks" class="thanks" hidden>
+    <p class="big">ありがとう！🐟</p>
+    <p>アンケートを受け取りました。<br>グライダーは箱に入れて持って帰ってね。おうちのおふろでも泳がせられるよ（大人といっしょにね）。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <img src="/img/logo-white.svg" alt="ロボットボランティア 工作班" width="884" height="100" loading="lazy">
+  <p>生徒を対象とした工作教室を企画・実行し、科学へのきょうみを広げる活動をしています。</p>
+  <p class="small">写真：工作班撮影／内容は教室用にやさしくまとめたものです。</p>
+</footer>
+
+<a href="#home" class="totop" aria-label="上へもどる">↑</a>
+<script src="/app.js" defer></script>
+</body>
+</html>
