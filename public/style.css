@@ -89,7 +89,7 @@ p{margin:.5em 0}
 .parts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
 .parts label{display:grid;grid-template-columns:auto 72px 1fr;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:10px 12px;box-shadow:var(--shadow);cursor:pointer;border:3px solid transparent;transition:.2s}
 .parts img{width:72px;height:72px;object-fit:cover;border-radius:10px;background:#eee}
-.parts span{line-height:1.4}
+.parts label>span{line-height:1.4}
 .parts small{display:block;color:var(--muted);font-size:.82rem}
 .parts input,.chips input,.faces input{position:absolute;opacity:0;pointer-events:none}
 .parts label::before{content:"";width:28px;height:28px;border-radius:9px;border:3px solid #b9cfdc;background:#fff;display:grid;place-items:center}
@@ -150,13 +150,13 @@ input:focus,textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0
 .survey legend em{font-style:normal;font-size:.72rem;background:var(--heart);color:#fff;border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle}
 .survey fieldset>*:not(legend){clear:both}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label span{display:inline-block;padding:7px 14px;border-radius:99px;border:2px solid #c6d8e3;background:#fff;cursor:pointer;font-weight:700;line-height:1.4}
-.chips label:has(input:checked) span{background:var(--sea);border-color:var(--sea);color:#fff}
-.chips label:has(input:focus-visible) span,.faces label:has(input:focus-visible) span{outline:3px solid var(--orange)}
+.chips label>span{display:inline-block;padding:7px 14px;border-radius:99px;border:2px solid #c6d8e3;background:#fff;cursor:pointer;font-weight:700;line-height:1.4}
+.chips label:has(input:checked)>span{background:var(--sea);border-color:var(--sea);color:#fff}
+.chips label:has(input:focus-visible)>span,.faces label:has(input:focus-visible)>span{outline:3px solid var(--orange)}
 .faces{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.faces span{display:grid;justify-items:center;padding:8px 0;border-radius:14px;border:2px solid #c6d8e3;font-size:2rem;line-height:1.1;cursor:pointer}
+.faces label>span{display:grid;justify-items:center;padding:8px 0;border-radius:14px;border:2px solid #c6d8e3;font-size:2rem;line-height:1.1;cursor:pointer}
 .faces small{font-size:.7rem;font-weight:700;color:var(--muted);margin-top:4px}
-.faces label:has(input:checked) span{border-color:var(--orange);background:var(--orange-l)}
+.faces label:has(input:checked)>span{border-color:var(--orange);background:var(--orange-l)}
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px}
 .svmsg{text-align:center;font-weight:700;color:var(--warn);min-height:1.8em}
 .thanks{background:linear-gradient(135deg,var(--sea-d),var(--navy));color:#fff;padding:22px;border-radius:var(--r);text-align:center}
@@ -205,7 +205,7 @@ h2 .num .ic{margin:0;width:.85em;height:.85em}
 .depth .nm .ic{width:1.1em;height:1.1em;margin-right:.25em}
 .complete strong .ic,.thanks .big .ic{width:1em;height:1em}
 .totop .ic{margin:0;width:24px;height:24px;stroke-width:2.6}
-.faces span{font-size:1rem}
+.faces label>span{font-size:1rem}
 .faces .face{width:34px;height:34px;stroke-width:1.6;color:#8aa3b6}
 .faces label:has(input:checked) .face{color:var(--orange)}
 .best .ic{color:var(--orange)}
@@ -220,11 +220,8 @@ h1 .rt,h2 .rt,h3 .rt,h4 .rt,.kicker .rt{font-size:.42em}
 h1{line-height:1.7}
 h2,h3,h4{line-height:1.6}
 .no-ruby .rt{display:none}
-.rubytoggle{flex:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1}
-.rubytoggle .rt-demo{display:inline-grid;justify-items:center;line-height:1;font-size:1rem}
-.rubytoggle .rt-demo small{font-size:.5rem;order:-1;margin-bottom:1px}
-.rubytoggle[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
-.rubytoggle[aria-pressed="false"] .rt-demo small{visibility:hidden}
+.rubytoggle{flex:none;font:inherit;font-size:.8rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--navy);border-radius:99px;padding:7px 14px;cursor:pointer;line-height:1.2;white-space:nowrap}
+.rubytoggle[aria-pressed="true"]{background:var(--navy);color:#fff}
 
 /* survey accordion */
 .acc{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);margin-top:12px}
@@ -238,9 +235,23 @@ h2,h3,h4{line-height:1.6}
 
 .sensor b .ic,.depth .nm .ic{vertical-align:-.25em}
 .depth .nm{line-height:1.9}
-.chips label span{line-height:1.9}
+.chips label>span{line-height:1.4;padding-top:12px}
 .trouble summary{line-height:1.9}
 /* ふりがな用に行間を確保 */
-.sensor,.fact,.timeline li,.parts span,.steps-mini li,.mission p{line-height:1.95}
+.sensor,.fact,.timeline li,.parts label>span,.steps-mini li,.mission p{line-height:1.95}
 .kicker{padding-top:.5em;line-height:1.35}
 .parts small{line-height:1.9}
+.faces small{white-space:nowrap}
+
+/* 記録メモ：見出し・入力欄・単位を縦にそろえる */
+.rec{display:grid;grid-template-columns:1fr;gap:12px;padding:16px}
+.rec label{display:grid;grid-template-columns:4.2em 1fr 2.4em;align-items:center;gap:10px}
+.rec .lk{font-weight:700;color:var(--navy)}
+.rec input{width:100%!important}
+.rec .unit{font-weight:700}
+.rec .btn{width:100%;margin-top:2px}
+.rec .btn{padding:16px 18px 12px}
+/* 年表の丸を線の中央に合わせる */
+.timeline li::before{box-sizing:border-box;width:22px;height:22px;left:-31px;top:8px}
+/* リセットボタンの下線なし */
+.link{text-decoration:none}

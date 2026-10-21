@@ -21,7 +21,7 @@
 
 <header class="top">
   <a href="#home" class="brand" aria-label="ページの先頭へ"><img src="/img/logo.svg" alt="ロボットボランティア 工作班" width="884" height="100"></a>
-  <button type="button" class="rubytoggle" id="rubyToggle" aria-pressed="true"><span class="rt-demo">漢<small>かん</small></span>ふりがな</button>
+  <button type="button" class="rubytoggle" id="rubyToggle" aria-pressed="true">ふりがなあり</button>
 </header>
 
 <nav class="tabs" aria-label="もくじ">
@@ -223,8 +223,8 @@
   <h3><span class="rb">記録<span class="rt" aria-hidden="true">きろく</span></span>メモ</h3>
   <p class="note"><span class="rb">記録<span class="rt" aria-hidden="true">きろく</span></span>はこの<span class="rb">端末<span class="rt" aria-hidden="true">たんまつ</span></span>にだけ<span class="rb">保存<span class="rt" aria-hidden="true">ほぞん</span></span>されます。</p>
   <form id="recForm" class="rec">
-    <label><span class="rb">距離<span class="rt" aria-hidden="true">きょり</span></span> <input type="number" id="recDist" inputmode="decimal" min="0" step="1" placeholder="例 120" required> cm</label>
-    <label>おもり <input type="number" id="recW" inputmode="numeric" min="0" max="20" placeholder="0"> <span class="rb">個<span class="rt" aria-hidden="true">こ</span></span></label>
+    <label><span class="lk"><span class="rb">距離<span class="rt" aria-hidden="true">きょり</span></span></span><input type="number" id="recDist" inputmode="decimal" min="0" step="1" placeholder="例）120" required><span class="unit">cm</span></label>
+    <label><span class="lk">おもり</span><input type="number" id="recW" inputmode="numeric" min="0" max="20" placeholder="0"><span class="unit"><span class="rb">個<span class="rt" aria-hidden="true">こ</span></span></span></label>
     <button type="submit" class="btn small"><span class="rb">記録<span class="rt" aria-hidden="true">きろく</span></span>する</button>
   </form>
   <ul id="recList" class="reclist"></ul>
@@ -260,7 +260,7 @@
           <label><input type="radio" name="fun" value="4"><span><svg class="face" aria-hidden="true"><use href="#i-face4"/></svg><small>たのしい</small></span></label>
           <label><input type="radio" name="fun" value="3"><span><svg class="face" aria-hidden="true"><use href="#i-face3"/></svg><small>ふつう</small></span></label>
           <label><input type="radio" name="fun" value="2"><span><svg class="face" aria-hidden="true"><use href="#i-face2"/></svg><small>あまり</small></span></label>
-          <label><input type="radio" name="fun" value="1"><span><svg class="face" aria-hidden="true"><use href="#i-face1"/></svg><small>つまらない</small></span></label>
+          <label><input type="radio" name="fun" value="1"><span><svg class="face" aria-hidden="true"><use href="#i-face1"/></svg><small>いまいち</small></span></label>
         </div>
       </fieldset>
 

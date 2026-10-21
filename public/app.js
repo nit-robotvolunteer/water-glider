@@ -144,6 +144,7 @@
   const setRuby = on => {
     document.body.classList.toggle("no-ruby", !on);
     rt.setAttribute("aria-pressed", on);
+    rt.textContent = on ? "ふりがなあり" : "ふりがななし";
     store.set("ruby", on);
   };
   setRuby(store.get("ruby", true));
