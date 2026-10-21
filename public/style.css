@@ -255,3 +255,7 @@ h2,h3,h4{line-height:1.6}
 .timeline li::before{box-sizing:border-box;width:22px;height:22px;left:-31px;top:8px}
 /* リセットボタンの下線なし */
 .link{text-decoration:none}
+/* 回答ありがとう：左揃え */
+.thanks{text-align:left;padding:22px 20px}
+.thanks .big{font-size:1.3rem;line-height:1.7;margin:0 0 .4em}
+.thanks .big .ic{vertical-align:-.15em;margin-right:.35em}
