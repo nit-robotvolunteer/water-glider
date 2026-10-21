@@ -134,7 +134,7 @@
       $("#svThanks").hidden = false;
       $("#survey").scrollIntoView({ behavior: "smooth" });
     } catch (err) {
-      msg.textContent = "送信できませんでした。もう一度お試しください。うまくいかない場合はスタッフに声をかけてください。";
+      msg.textContent = "送信できませんでした。もう一度お試しください。うまくいかない場合は近くの学生に声をかけてください。";
       btn.disabled = false; btn.innerHTML = label;
     }
   });

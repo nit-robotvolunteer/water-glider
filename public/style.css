@@ -15,8 +15,8 @@ h1,h2,h3,h4{font-weight:900;line-height:1.35;color:var(--navy);margin:0}
 main{max-width:860px;margin:0 auto;padding:0 16px 40px}
 section{padding-top:28px}
 section+section{border-top:2px dashed var(--line);margin-top:36px}
-h2{font-size:1.6rem;display:flex;align-items:center;gap:.4em;margin-bottom:.6em}
-h2 .num{display:inline-grid;place-items:center;width:1.7em;height:1.7em;border-radius:12px;background:var(--sky);font-size:.9em}
+h2{font-size:1.6rem;margin-bottom:.6em}
+h2 .num{display:inline-grid;place-items:center;width:1.7em;height:1.7em;border-radius:12px;background:var(--sky);font-size:.9em;vertical-align:middle;margin-right:.45em;position:relative;top:-.1em}
 h3{font-size:1.2rem;margin:1.8em 0 .6em;padding-left:.6em;border-left:6px solid var(--orange)}
 h4{font-size:1.1rem;margin:.1em 0 .3em}
 p{margin:.5em 0}
@@ -43,7 +43,7 @@ p{margin:.5em 0}
 .hero-img img{width:100%;max-width:640px;margin:0 auto;filter:drop-shadow(0 14px 14px rgba(18,53,91,.18))}
 .hero-img figcaption{text-align:center;color:var(--muted);font-size:.9rem}
 .flow{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
-.flow li{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);font-weight:700;display:flex;gap:10px;align-items:center;line-height:1.4}
+.flow li{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:var(--shadow);font-weight:700;display:flex;gap:10px;align-items:center;line-height:1.9}
 .flow b{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sea);color:#fff}
 
 /* generic cards */
@@ -199,9 +199,9 @@ h2 .num .ic{margin:0;width:.85em;height:.85em}
 .point .ic,.warn .ic{position:absolute;left:.7em;top:.68em;margin:0}
 .point .ic{color:var(--sea-d)}
 .warn .ic{color:var(--warn)}
-.sensor b{display:flex;align-items:center}
+.sensor b{display:block}
 .sensor b .ic{color:var(--sea-d);width:1.3em;height:1.3em}
-.depth .nm{display:flex;align-items:center}
+.depth .nm{display:block}
 .depth .nm .ic{width:1.1em;height:1.1em;margin-right:.25em}
 .complete strong .ic,.thanks .big .ic{width:1em;height:1em}
 .totop .ic{margin:0;width:24px;height:24px;stroke-width:2.6}
@@ -211,9 +211,14 @@ h2 .num .ic{margin:0;width:.85em;height:.85em}
 .best .ic{color:var(--orange)}
 
 /* furigana */
-ruby{ruby-position:over}
-rt{font-size:.5em;font-weight:500;letter-spacing:0;color:inherit;opacity:.85}
-h1 rt,h2 rt,h3 rt,h4 rt{font-size:.42em}
+/* ふりがなは漢字の上に浮かせる（文字の間隔・行の高さを崩さない） */
+ruby{display:inline-block;position:relative;line-height:1.15;text-indent:0;white-space:nowrap}
+rt{display:block;position:absolute;left:50%;bottom:100%;transform:translateX(-50%);
+  font-size:.5em;line-height:1;font-weight:500;letter-spacing:0;white-space:nowrap;color:inherit;opacity:.8;
+  padding-bottom:.05em;pointer-events:none}
+h1 rt,h2 rt,h3 rt,h4 rt,.kicker rt{font-size:.42em}
+h1{line-height:1.7}
+h2,h3,h4{line-height:1.6}
 .no-ruby rt{display:none}
 .rubytoggle{flex:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1}
 .rubytoggle .rt-demo{display:inline-grid;justify-items:center;line-height:1;font-size:1rem}
@@ -230,3 +235,12 @@ h1 rt,h2 rt,h3 rt,h4 rt{font-size:.42em}
 .acc[open]>summary .chev{transform:rotate(180deg)}
 .acc .survey{padding:14px 12px 4px}
 .acc .survey fieldset{box-shadow:none;border:1px solid var(--line)}
+
+.sensor b .ic,.depth .nm .ic{vertical-align:-.25em}
+.depth .nm{line-height:1.9}
+.chips label span{line-height:1.9}
+.trouble summary{line-height:1.9}
+/* ふりがな用に行間を確保 */
+.sensor,.fact,.timeline li,.parts span,.steps-mini li,.mission p{line-height:1.95}
+.kicker{padding-top:.5em;line-height:1.35}
+.parts small{line-height:1.9}
