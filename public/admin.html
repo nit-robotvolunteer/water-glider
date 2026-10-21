@@ -29,7 +29,9 @@
   .hb i{display:block;height:12px;border-radius:6px;background:var(--sea)}
   .hb em{font-style:normal;text-align:right;color:var(--muted)}
   table{width:100%;border-collapse:collapse;background:#fff;font-size:.85rem}
-  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;white-space:nowrap}
+  td.wrap{white-space:normal;min-width:14em;max-width:22em}
+  table{min-width:100%;width:max-content}
   th{background:#eef4f8;position:sticky;top:0}
   .scroll{max-height:60vh;overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:10px}
   #msg{color:#b42318;font-weight:600}
@@ -61,14 +63,14 @@
       <div class="box"><h2>おもしろかったこと</h2><div id="hLiked"></div></div>
     </div>
     <div class="scroll">
-      <table><thead><tr><th>日時</th><th>回</th><th>学年</th><th>楽</th><th>難</th><th>きょり</th><th>つぎに作りたい</th><th>感想</th></tr></thead><tbody id="rows"></tbody></table>
+      <table><thead><tr><th>日時</th><th>回</th><th>学年</th><th>楽しさ</th><th>難しさ</th><th>理解</th><th>また参加</th><th>距離(cm)</th><th>次に作りたい</th><th>感想</th></tr></thead><tbody id="rows"></tbody></table>
     </div>
   </div>
 </main>
 <script>
 (() => {
   const $ = s => document.querySelector(s);
-  const L = { easy:"かんたん", just:"ちょうどいい", hard:"むずかしい", story:"お話", build:"組み立て", swim:"泳がせる", race:"競争", yes:"来たい", maybe:"たぶん", no:"いいえ" };
+  const L = { easy:"簡単", just:"ちょうどよい", hard:"難しい", story:"お話", build:"組み立て", swim:"泳がせる", race:"比べ合い", yes:"参加したい", maybe:"どちらとも", no:"参加したくない" };
   try { $("#tok").value = sessionStorage.getItem("ugtok") || ""; } catch {}
   const headers = () => ({ Authorization: "Bearer " + $("#tok").value.trim() });
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
@@ -101,7 +103,9 @@
     hist($("#hDiff"), cnt("difficulty"), ["easy","just","hard"]);
     const liked = {}; rows.forEach(r => (r.liked || "").split(",").filter(Boolean).forEach(k => liked[k] = (liked[k]||0)+1));
     hist($("#hLiked"), liked, ["story","build","swim","race"]);
-    $("#rows").innerHTML = rows.map(r => `<tr><td>${esc(r.created_at)}</td><td>${esc(r.event)}</td><td>${esc(r.grade)}</td><td>${r.fun}</td><td>${esc(L[r.difficulty]||"")}</td><td>${r.distance ?? ""}</td><td>${esc(r.next_idea)}</td><td>${esc(r.comment)}</td></tr>`).join("");
+    const jst = t => { const d = new Date(String(t).replace(" ", "T") + "Z"); return isNaN(d) ? t : d.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" }); };
+    const U = { 3: "よく", 2: "少し", 1: "あまり" };
+    $("#rows").innerHTML = rows.map(r => `<tr><td>${esc(jst(r.created_at))}</td><td>${esc(r.event)}</td><td>${esc(r.grade)}</td><td>${r.fun}</td><td>${esc(L[r.difficulty]||"")}</td><td>${esc(U[r.understand]||"")}</td><td>${esc(L[r.again]||"")}</td><td>${r.distance ?? ""}</td><td class="wrap">${esc(r.next_idea)}</td><td class="wrap">${esc(r.comment)}</td></tr>`).join("");
     $("#out").hidden = false;
   }
   $("#load").onclick = load;
