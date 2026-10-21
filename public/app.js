@@ -33,7 +33,6 @@
       const d = !!buildState[s.dataset.k];
       s.classList.toggle("is-done", d);
       s.classList.remove("is-current");
-      $(".done", s).textContent = d ? "できた！" : "できた！";
       $(".done", s).setAttribute("aria-pressed", d);
       if (d) n++; else if (!firstOpen) firstOpen = s;
     });
@@ -57,7 +56,7 @@
   renderBuild(false);
 
   $("#resetBtn").addEventListener("click", () => {
-    if (!confirm("部品と組み立てのチェックをぜんぶ消しますか？")) return;
+    if (!confirm("部品と組み立てのチェックをすべて消しますか？")) return;
     for (const k in partsState) delete partsState[k];
     for (const k in buildState) delete buildState[k];
     store.del("parts"); store.del("build");
@@ -74,11 +73,11 @@
     recs.slice().reverse().forEach((r, idx) => {
       const li = document.createElement("li");
       if (r.d === best) li.className = "best";
-      li.textContent = `${recs.length - idx}回目　${r.d} cm` + (r.w ? `（おもり ${r.w}こ）` : "");
+      li.textContent = `${recs.length - idx}回目　${r.d} cm` + (r.w ? `（おもり ${r.w}個）` : "");
       list.appendChild(li);
     });
     $("#recBest").hidden = !recs.length;
-    $("#recBest").textContent = `ベスト記録：${best} cm 🏆`;
+    $("#recBest").innerHTML = `<svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>ベスト記録：${best} cm`;
     if (best && !$("#svDist").value) $("#svDist").value = best;
   };
   $("#recForm").addEventListener("submit", e => {
@@ -96,14 +95,15 @@
   /* ---------- survey ---------- */
   const form = $("#surveyForm");
   const eventId = new URLSearchParams(location.search).get("event") || "";
-  if (store.get("surveyDone:" + eventId, false)) { form.hidden = true; $("#svThanks").hidden = false; }
+  const acc = $("#surveyAcc");
+  if (store.get("surveyDone:" + eventId, false)) { acc.hidden = true; $("#svThanks").hidden = false; }
 
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const msg = $("#svMsg");
     const fd = new FormData(form);
     if (!fd.get("grade") || !fd.get("fun")) {
-      msg.textContent = "「あなたは？」と「たのしかった？」をえらんでね";
+      msg.textContent = "「学年」と「楽しかったですか？」を選んでください";
       (fd.get("grade") ? $('[name="fun"]') : $('[name="grade"]')).closest("fieldset").scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
@@ -120,7 +120,7 @@
       comment: (fd.get("comment") || "").trim(),
       website: fd.get("website") || "",
     };
-    const btn = $("#svBtn");
+    const btn = $("#svBtn"), label = btn.innerHTML;
     btn.disabled = true; btn.textContent = "送信中…"; msg.textContent = "";
     try {
       const res = await fetch("/api/survey", {
@@ -130,14 +130,27 @@
       });
       if (!res.ok) throw new Error(await res.text());
       store.set("surveyDone:" + eventId, true);
-      form.hidden = true;
+      acc.hidden = true;
       $("#svThanks").hidden = false;
       $("#survey").scrollIntoView({ behavior: "smooth" });
     } catch (err) {
-      msg.textContent = "送信できませんでした。もう一度おしてみてね（だめならスタッフへ）";
-      btn.disabled = false; btn.textContent = "送信する";
+      msg.textContent = "送信できませんでした。もう一度お試しください。うまくいかない場合はスタッフに声をかけてください。";
+      btn.disabled = false; btn.innerHTML = label;
     }
   });
+
+  /* ---------- furigana on/off ---------- */
+  const rt = $("#rubyToggle");
+  const setRuby = on => {
+    document.body.classList.toggle("no-ruby", !on);
+    rt.setAttribute("aria-pressed", on);
+    store.set("ruby", on);
+  };
+  setRuby(store.get("ruby", true));
+  rt.addEventListener("click", () => setRuby(document.body.classList.contains("no-ruby")));
+
+  /* tab "アンケート" opens the accordion */
+  $$('a[href="#survey"]').forEach(a => a.addEventListener("click", () => { if (!acc.hidden) acc.open = true; }));
 
   /* ---------- tab highlight + back to top ---------- */
   const tabs = $$(".tabs a");

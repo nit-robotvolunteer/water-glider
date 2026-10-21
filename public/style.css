@@ -23,7 +23,7 @@ p{margin:.5em 0}
 .note{color:var(--muted);font-size:.93rem}
 
 /* header + tabs */
-.top{background:#fff;padding:10px 16px;display:flex;justify-content:center;border-bottom:1px solid var(--line)}
+.top{background:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
 .brand{display:block;width:100%;max-width:440px}
 .brand img{width:100%;height:auto}
 .tabs{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:2px;background:var(--navy);
@@ -49,8 +49,6 @@ p{margin:.5em 0}
 /* generic cards */
 .card{background:var(--card);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
 .speech .q{font-weight:900;color:var(--sea-d);margin:0 0 .4em}
-.speech .q::before{content:"🤔 "}
-.speech .a::before{content:"🤖 "}
 .figure{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:#fff}
 .steps-mini{list-style:none;padding:0;margin:14px 0;display:grid;gap:8px}
 .steps-mini li{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:var(--shadow)}
@@ -188,3 +186,47 @@ input:focus,textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media (min-width:720px){.hero{grid-template-columns:1.05fr .95fr}.hero h1{font-size:2.2rem}}
+
+/* line icons */
+.ic,.ti,.face{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.2em}
+.ic{margin-right:.35em}
+.tabs a .ti{display:block;width:22px;height:22px;margin:0 auto 3px;stroke-width:1.9}
+h2 .num{color:var(--sea-d)}
+h2 .num .ic{margin:0;width:.85em;height:.85em}
+.speech p{position:relative;padding-left:1.6em}
+.speech p .ic{position:absolute;left:0;top:.38em;margin:0;color:var(--sea-d)}
+.point,.warn{position:relative;padding-left:2.1em!important}
+.point .ic,.warn .ic{position:absolute;left:.7em;top:.68em;margin:0}
+.point .ic{color:var(--sea-d)}
+.warn .ic{color:var(--warn)}
+.sensor b{display:flex;align-items:center}
+.sensor b .ic{color:var(--sea-d);width:1.3em;height:1.3em}
+.depth .nm{display:flex;align-items:center}
+.depth .nm .ic{width:1.1em;height:1.1em;margin-right:.25em}
+.complete strong .ic,.thanks .big .ic{width:1em;height:1em}
+.totop .ic{margin:0;width:24px;height:24px;stroke-width:2.6}
+.faces span{font-size:1rem}
+.faces .face{width:34px;height:34px;stroke-width:1.6;color:#8aa3b6}
+.faces label:has(input:checked) .face{color:var(--orange)}
+.best .ic{color:var(--orange)}
+
+/* furigana */
+ruby{ruby-position:over}
+rt{font-size:.5em;font-weight:500;letter-spacing:0;color:inherit;opacity:.85}
+h1 rt,h2 rt,h3 rt,h4 rt{font-size:.42em}
+.no-ruby rt{display:none}
+.rubytoggle{flex:none;font:inherit;font-size:.78rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--line);border-radius:99px;padding:5px 12px 5px 8px;display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1}
+.rubytoggle .rt-demo{display:inline-grid;justify-items:center;line-height:1;font-size:1rem}
+.rubytoggle .rt-demo small{font-size:.5rem;order:-1;margin-bottom:1px}
+.rubytoggle[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.rubytoggle[aria-pressed="false"] .rt-demo small{visibility:hidden}
+
+/* survey accordion */
+.acc{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);margin-top:12px}
+.acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;font-weight:900;font-size:1.1rem;color:#fff;background:var(--navy);border-radius:var(--r)}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary .chev{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.acc[open]>summary{border-radius:var(--r) var(--r) 0 0}
+.acc[open]>summary .chev{transform:rotate(180deg)}
+.acc .survey{padding:14px 12px 4px}
+.acc .survey fieldset{box-shadow:none;border:1px solid var(--line)}
