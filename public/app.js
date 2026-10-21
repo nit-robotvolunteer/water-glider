@@ -73,7 +73,7 @@
     recs.slice().reverse().forEach((r, idx) => {
       const li = document.createElement("li");
       if (r.d === best) li.className = "best";
-      li.textContent = `${recs.length - idx}回目　${r.d} cm` + (r.w ? `（おもり ${r.w}個）` : "");
+      li.textContent = `${recs.length - idx}回目　${r.d} cm` + (r.w ? `(おもり ${r.w}個)` : "");
       list.appendChild(li);
     });
     $("#recBest").hidden = !recs.length;
