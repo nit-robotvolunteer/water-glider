@@ -51,14 +51,14 @@
   <div id="out" hidden>
     <div class="kpis">
       <div class="kpi"><b id="kN">0</b><span>回答数</span></div>
-      <div class="kpi"><b id="kFun">-</b><span>たのしさ平均（5点満点）</span></div>
+      <div class="kpi"><b id="kFun">-</b><span>楽しさ平均(5点満点)</span></div>
       <div class="kpi"><b id="kUnd">-</b><span>しくみ「よくわかった」</span></div>
-      <div class="kpi"><b id="kAgain">-</b><span>また来たい</span></div>
-      <div class="kpi"><b id="kDist">-</b><span>最長きょり（cm）</span></div>
+      <div class="kpi"><b id="kAgain">-</b><span>また参加したい</span></div>
+      <div class="kpi"><b id="kDist">-</b><span>最長距離(cm)</span></div>
     </div>
     <div class="cols">
       <div class="box"><h2>学年</h2><div id="hGrade"></div></div>
-      <div class="box"><h2>たのしさ</h2><div id="hFun"></div></div>
+      <div class="box"><h2>楽しさ</h2><div id="hFun"></div></div>
       <div class="box"><h2>組み立ての難しさ</h2><div id="hDiff"></div></div>
       <div class="box"><h2>おもしろかったこと</h2><div id="hLiked"></div></div>
     </div>
@@ -87,7 +87,7 @@
     if (!r.ok) { $("#msg").textContent = r.status === 401 ? "トークンがちがいます" : "読み込みエラー " + r.status; return; }
     const { rows, events } = await r.json();
     const sel = $("#ev"), cur = sel.value;
-    sel.innerHTML = '<option value="">すべて</option>' + events.map(e => `<option value="${esc(e.event)}">${esc(e.event || "(指定なし)")}（${e.n}）</option>`).join("");
+    sel.innerHTML = '<option value="">すべて</option>' + events.map(e => `<option value="${esc(e.event)}">${esc(e.event || "(指定なし)")}(${e.n})</option>`).join("");
     sel.value = cur;
     const n = rows.length, cnt = (k, f = r => r[k]) => rows.reduce((m, r) => { const v = f(r); if (v != null && v !== "") m[v] = (m[v]||0)+1; return m; }, {});
     $("#kN").textContent = n;
@@ -98,7 +98,7 @@
     $("#kAgain").textContent = ag.length ? Math.round(ag.filter(r => r.again === "yes").length / ag.length * 100) + "%" : "-";
     const ds = rows.map(r => r.distance).filter(v => v != null);
     $("#kDist").textContent = ds.length ? Math.max(...ds) : "-";
-    hist($("#hGrade"), cnt("grade"), ["小1-2","小3-4","小5-6","中学生","保護者","その他"]);
+    hist($("#hGrade"), cnt("grade"), ["小1-2","小3-4","小5-6","保護者","その他"]);
     hist($("#hFun"), cnt("fun"), ["5","4","3","2","1"]);
     hist($("#hDiff"), cnt("difficulty"), ["easy","just","hard"]);
     const liked = {}; rows.forEach(r => (r.liked || "").split(",").filter(Boolean).forEach(k => liked[k] = (liked[k]||0)+1));
